@@ -1,21 +1,21 @@
 # NinjaOne Automation Scripts
 
-> A collection of **114 custom PowerShell and Bash scripts** developed for automating IT operations across Windows and macOS endpoints, via NinjaOne RMM and standalone. These scripts represent real-world automation built to enforce security compliance, manage software lifecycles, administer SharePoint Online, and reduce manual IT workload across a distributed organization.
+> A collection of **118 custom PowerShell and Bash scripts** developed for automating IT operations across Windows and macOS endpoints, via NinjaOne RMM, Microsoft Intune, and standalone. These scripts represent real-world automation built to enforce security compliance, manage software lifecycles, administer SharePoint Online, and reduce manual IT workload across a distributed organization.
 
 ## Overview
 
 | Metric | Value |
 |--------|-------|
-| Total Scripts | **114** |
+| Total Scripts | **118** |
 | PowerShell (Windows) | **98** |
-| Bash (macOS) | **16** |
+| Bash (macOS) | **20** |
 | Categories | **12** |
-| Platforms | NinjaOne RMM · SharePoint Online · Standalone |
+| Platforms | NinjaOne RMM · Microsoft Intune · SharePoint Online · Standalone |
 
 ## Categories
 
 - [🔒 Security Hardening & CVE Mitigations](#security-hardening) — 17 scripts
-- [🛡️ Security Tools](#security-tools) — 15 scripts
+- [🛡️ Security Tools](#security-tools) — 19 scripts
 - [💬 Microsoft Teams](#microsoft-teams) — 4 scripts
 - [📄 Microsoft Office & 365](#microsoft-office) — 11 scripts
 - [⚙️ .NET Core / ASP.NET Runtime](#dotnet-runtime) — 13 scripts
@@ -57,7 +57,7 @@ Scripts that remediate known CVEs, enforce secure protocol configurations, and h
 ## 🛡️ Security Tools
 <a name="security-tools"></a>
 
-Deployment and management scripts for endpoint security agents including Microsoft Defender, Sophos, Tenable Nessus, Cisco Umbrella, and Fortinet FortiClient.
+Deployment and management scripts for endpoint security agents including Microsoft Defender, Sophos, Tenable Nessus, Cisco Umbrella, and Fortinet FortiClient — for both Windows and macOS, deployed via NinjaOne RMM and Microsoft Intune.
 
 | Script | Platform | Description |
 |--------|----------|-------------|
@@ -76,6 +76,10 @@ Deployment and management scripts for endpoint security agents including Microso
 | [`Update Microsoft Defender signatures manually`](security-tools/193_Update_Microsoft_Defender_signatures_manually.ps1) | Windows | — |
 | [`Install Sophos Endpoint`](security-tools/Install-Sophos.ps1) | Windows | Downloads and silently installs Sophos Endpoint via Sophos cloud link |
 | [`Install Duo for Windows (Login)`](security-tools/duoforWindows.ps1) | Windows | Silently installs Duo Windows Logon with configurable integration key and host |
+| [`Install Tenable Nessus Agent (macOS)`](security-tools/tenable_nessus_mac.sh) | macOS | Downloads Nessus Agent DMG, installs, and links to Tenable cloud — deploy via Intune |
+| [`Install FortiClient 7.2.x (macOS)`](security-tools/forticlient_mac.sh) | macOS | Downloads FortiClient from internal distribution server and installs silently — deploy via Intune |
+| [`Install Sophos Endpoint (macOS)`](security-tools/sophos_mac.sh) | macOS | Downloads SophosInstall.zip from Sophos Central and installs endpoint agent — deploy via Intune |
+| [`Install Duo Authentication (macOS)`](security-tools/duo_mac.sh) | macOS | Downloads and configures Duo Authentication for macOS logon — deploy via Intune |
 
 ## 💬 Microsoft Teams
 <a name="microsoft-teams"></a>
