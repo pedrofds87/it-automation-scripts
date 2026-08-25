@@ -1,37 +1,38 @@
 # NinjaOne Automation Scripts
 
-> A collection of **104 custom PowerShell and Bash scripts** developed for automating IT operations across Windows and macOS endpoints via NinjaOne RMM. These scripts represent real-world automation built to enforce security compliance, manage software lifecycles, and reduce manual IT workload across a distributed organization.
+> A collection of **114 custom PowerShell and Bash scripts** developed for automating IT operations across Windows and macOS endpoints, via NinjaOne RMM and standalone. These scripts represent real-world automation built to enforce security compliance, manage software lifecycles, administer SharePoint Online, and reduce manual IT workload across a distributed organization.
 
 ## Overview
 
 | Metric | Value |
 |--------|-------|
-| Total Scripts | **104** |
-| PowerShell (Windows) | **91** |
-| Bash (macOS) | **13** |
-| Categories | **11** |
-| Platform | NinjaOne RMM |
+| Total Scripts | **114** |
+| PowerShell (Windows) | **98** |
+| Bash (macOS) | **16** |
+| Categories | **12** |
+| Platforms | NinjaOne RMM · SharePoint Online · Standalone |
 
 ## Categories
 
-- [🔒 Security Hardening & CVE Mitigations](#security-hardening) — 16 scripts
-- [🛡️ Security Tools](#security-tools) — 13 scripts
+- [🔒 Security Hardening & CVE Mitigations](#security-hardening) — 17 scripts
+- [🛡️ Security Tools](#security-tools) — 15 scripts
 - [💬 Microsoft Teams](#microsoft-teams) — 4 scripts
 - [📄 Microsoft Office & 365](#microsoft-office) — 11 scripts
 - [⚙️ .NET Core / ASP.NET Runtime](#dotnet-runtime) — 13 scripts
 - [🍎 macOS Scripts](#macos) — 9 scripts
 - [🌐 Browser Updates](#browser-updates) — 6 scripts
-- [📦 Software Management](#software-management) — 6 scripts
+- [📦 Software Management](#software-management) — 7 scripts
 - [🖥️ Hardware & Drivers](#hardware-drivers) — 4 scripts
-- [🔌 Network Diagnostics](#network-diagnostics) — 1 scripts
+- [🔌 Network Diagnostics](#network-diagnostics) — 1 script
 - [🖧 System Administration](#system-administration) — 21 scripts
+- [📋 SharePoint Online](#sharepoint) — 6 scripts
 
 ---
 
 ## 🔒 Security Hardening & CVE Mitigations
 <a name="security-hardening"></a>
 
-Scripts that remediate known CVEs, enforce secure protocol configurations, and harden Windows systems against common attack vectors including RC4, SSL/TLS weaknesses, SMB misconfigurations, and speculative execution vulnerabilities.
+Scripts that remediate known CVEs, enforce secure protocol configurations, and harden Windows systems against common attack vectors including RC4, SSL/TLS weaknesses, SMB misconfigurations, PrintNightmare, and speculative execution vulnerabilities.
 
 | Script | Platform | Description |
 |--------|----------|-------------|
@@ -51,6 +52,7 @@ Scripts that remediate known CVEs, enforce secure protocol configurations, and h
 | [`Windows Speculative Execution Configuration Check - Intel BHI (CVE-2022-0001)`](security-hardening/220_Windows_Speculative_Execution_Configuration_Check_-_Intel_BH.ps1) | Windows | Windows Speculative Execution Configuration Check - Intel BHI (CVE-2022-0001) |
 | [`domain-joined / local AD BitLocker script`](security-hardening/196_domain-joined_local_AD_BitLocker_script.ps1) | Windows | — |
 | [`smb configuration`](security-hardening/221_smb_configuration.ps1) | Windows | — |
+| [`Remediate PrintNightmare (CVE-2021-34527)`](security-hardening/Remediate-PrintNightmare.ps1) | Windows | Point and Print registry hardening for the PrintNightmare vulnerability |
 
 ## 🛡️ Security Tools
 <a name="security-tools"></a>
@@ -72,6 +74,8 @@ Deployment and management scripts for endpoint security agents including Microso
 | [`Tenable for MAC`](security-tools/150_Tenable_for_MAC.sh) | Mac | pstanczyk |
 | [`Umbrella Installation`](security-tools/143_Umbrella_Installation.ps1) | Windows | # pstanczyk 2024-12-04 |
 | [`Update Microsoft Defender signatures manually`](security-tools/193_Update_Microsoft_Defender_signatures_manually.ps1) | Windows | — |
+| [`Install Sophos Endpoint`](security-tools/Install-Sophos.ps1) | Windows | Downloads and silently installs Sophos Endpoint via Sophos cloud link |
+| [`Install Duo for Windows (Login)`](security-tools/duoforWindows.ps1) | Windows | Silently installs Duo Windows Logon with configurable integration key and host |
 
 ## 💬 Microsoft Teams
 <a name="microsoft-teams"></a>
@@ -169,6 +173,7 @@ General-purpose software deployment scripts using Winget and direct installers f
 | [`Uninstall VLC`](software-management/134_Uninstall_VLC.ps1) | Windows | — |
 | [`delete registry keys related to Zoom`](software-management/147_delete_registry_keys_related_to_Zoom.ps1) | Windows | — |
 | [`update Zoom`](software-management/119_update_Zoom.ps1) | Windows | — |
+| [`Restart Solver Services`](software-management/Restart-SolverServices.ps1) | Windows | Restarts Solver Report, Publishing, and Maintenance services with timestamped logging |
 
 ## 🖥️ Hardware & Drivers
 <a name="hardware-drivers"></a>
@@ -219,6 +224,22 @@ Broad-scope Windows administration scripts covering BitLocker, Active Directory,
 | [`rdp self certificate`](system-administration/226_rdp_self_certificate.ps1) | Windows | — |
 | [`shutdown server`](system-administration/244_shutdown_server.ps1) | Windows | pstanczyk |
 | [`sleep and screen off to Never`](system-administration/141_sleep_and_screen_off_to_Never.ps1) | Windows | — |
+
+## 📋 SharePoint Online
+<a name="sharepoint"></a>
+
+PowerShell scripts for SharePoint Online administration using PnP PowerShell and Microsoft Graph. Covers document library management, supplier directory automation, bulk file operations, and SharePoint group/web part provisioning.
+
+| Script | Description |
+|--------|-------------|
+| [`Add-StatusColumnToLibraries.ps1`](sharepoint/Add-StatusColumnToLibraries.ps1) | Moves a shared Status column (Approved/Inactive) from document libraries to directory lists and bulk-sets existing suppliers to Approved |
+| [`Populate-RADirectory.ps1`](sharepoint/Populate-RADirectory.ps1) | Builds a searchable supplier directory experience for RA/FL/WH document libraries, replacing Quick Launch entries with 3 filterable directory pages |
+| [`Setup-VisitorsGroupAndWebPart.ps1`](sharepoint/Setup-VisitorsGroupAndWebPart.ps1) | Creates/verifies a Visitors SharePoint group with Read-only permissions and adds a People web part snapshot to the site Home page |
+| [`Build-RawMaterial-Directories.ps1`](sharepoint/Build-RawMaterial-Directories.ps1) | Builds raw material directory structure from an Excel inventory spreadsheet |
+| [`delete_sharepointfiles.ps1`](sharepoint/delete_sharepointfiles.ps1) | Bulk-deletes files from a SharePoint document library via PnP PowerShell |
+| [`movetosp.ps1`](sharepoint/movetosp.ps1) | Uploads a local file to a SharePoint site using Microsoft Graph (device code auth) |
+
+> **Prerequisites:** PnP.PowerShell module and/or Microsoft.Graph module. Update tenant URL and site path parameters before running.
 
 ---
 
