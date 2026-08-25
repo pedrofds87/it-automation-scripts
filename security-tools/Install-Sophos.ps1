@@ -1,10 +1,13 @@
 # Install-Sophos.ps1
 # Download and silently install Sophos Endpoint via Sophos cloud link
+# Deploy via: NinjaOne RMM or Microsoft Intune
+# NOTE: Get YOUR_SOPHOS_DOWNLOAD_URL from:
+#       Sophos Central > Endpoint Protection > Protect Devices > Download Installer (Windows)
 
 $ErrorActionPreference = 'Stop'
 
-# Sophos download URL
-$DownloadUrl  = "https://api-cloudstation-us-east-2.prod.hydra.sophos.com/api/download/ef31545ad98202fa38b86143a7a31ecd/SophosSetup.exe"
+# Sophos download URL — replace with the installer link from your Sophos Central portal
+$DownloadUrl  = "YOUR_SOPHOS_CENTRAL_INSTALLER_URL"
 $InstallerPath = Join-Path $env:TEMP "SophosSetup.exe"
 
 Write-Output "Sophos Intune install script starting..."
@@ -51,8 +54,7 @@ try {
 } catch {
     Write-Output "ERROR: $($_.Exception.Message)"
     exit 1
-}
-finally {
+} finally {
     if (Test-Path $InstallerPath) {
         Write-Output "Cleaning up installer file..."
         Remove-Item -Path $InstallerPath -Force -ErrorAction SilentlyContinue
