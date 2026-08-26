@@ -2,14 +2,14 @@
 # SharePoint Bulk File Delete
 # ==============================
 
-#run before to get ClientId Register-PnPEntraIDAppForInteractiveLogin -ApplicationName "PnP PowerShell SharePoint Cleanup" -Tenant "iammutant.onmicrosoft.com"
+#run before to get ClientId Register-PnPEntraIDAppForInteractiveLogin -ApplicationName "PnP PowerShell SharePoint Cleanup" -Tenant "YOUR-TENANT.onmicrosoft.com"
 
 # Requires PowerShell 7+
 # Install first if needed:
 # Install-Module PnP.PowerShell -Scope CurrentUser -Force
 
-$SiteUrl = "https://iammutant.sharepoint.com/sites/Infra"
-$Tenant = "iammutant.onmicrosoft.com"
+$SiteUrl = "https://YOUR-TENANT.sharepoint.com/sites/Infra"
+$Tenant = "YOUR-TENANT.onmicrosoft.com"
 $ClientId = "paste here"
 
 $CsvPath = "C:\Temp\files-to-delete.csv"
