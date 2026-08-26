@@ -3,18 +3,22 @@
 # Description: #pstanczyk 2024-12-05
 # NinjaOne Script ID: 145
 
+
 # Define paths
 $TenableInstallerUrl = "https://sensor.cloud.tenable.com/install/agent/installer/ms-install-script.ps1"
 $TenableScriptPath = "$env:TEMP\ms-install-script.ps1"
-$TenableKey = "cbda26ae4c08a6a91fb547497aaab6ee5e0f18bee5057fc24f7a6006ba851a1e"
+$TenableKey = "YOUR_TENABLE_LINKING_KEY"    # Get from Tenable.io > Sensors > Nessus Agents > Add Agent
 $TenableGroups = "Laptop"
+
 
 # Get station name dynamically
 $StationName = $env:COMPUTERNAME
 
+
 # Install Tenable
 Write-Output "Downloading Tenable installer script..."
 Invoke-WebRequest -Uri $TenableInstallerUrl -OutFile $TenableScriptPath
+
 
 if (Test-Path $TenableScriptPath) {
     Write-Output "Tenable installer script downloaded successfully. Running the script..."
@@ -31,5 +35,6 @@ if (Test-Path $TenableScriptPath) {
     Write-Output "Error: Failed to download Tenable installer script."
     Exit 1
 }
+
 
 #pstanczyk 2024-12-05
