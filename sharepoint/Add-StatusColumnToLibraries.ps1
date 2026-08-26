@@ -11,7 +11,7 @@
 
     1. Reuses the existing "ApprovalStatus" site column (displayed as "Status") created
        earlier - does not recreate it if already present.
-    2. Removes that field's reference from every individual RA-/FL-/WH- library (this only
+    2. Removes that field's reference from every individual RA-/FL-/WH- library (thihs only
        detaches the reference from each library - the site column definition itself, and
        anything on the directory lists, is untouched).
     3. Adds the field (by reference) to each of the 3 directory lists, positioned right
