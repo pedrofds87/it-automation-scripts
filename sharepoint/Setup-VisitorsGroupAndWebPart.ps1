@@ -44,13 +44,13 @@
     "Visitors" group who isn't in the source Visitors group. Useful for a first, cautious run.
 
 .EXAMPLE
-    Connect-PnPOnline -Url "https://iammutant.sharepoint.com/sites/QA-ApprovedSupplierRawMaterial" -Interactive
+    Connect-PnPOnline -Url "https://YOUR-TENANT.sharepoint.com/sites/QA-ApprovedSupplierRawMaterial" -Interactive
     .\Setup-VisitorsGroupAndWebPart.ps1
 #>
 
 [CmdletBinding()]
 param(
-    [string]$SiteUrl = "https://iammutant.sharepoint.com/sites/QA-ApprovedSupplierRawMaterial",
+    [string]$SiteUrl = "https://YOUR-TENANT.sharepoint.com/sites/QA-ApprovedSupplierRawMaterial",
     [string]$GroupName = "Visitors",
     [string]$LogPath,
     [switch]$SkipRemoveExtraMembers
