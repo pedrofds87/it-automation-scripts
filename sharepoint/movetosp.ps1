@@ -4,7 +4,7 @@ $ErrorActionPreference = 'Stop'
 Connect-MgGraph -Scopes "Sites.Read.All","Files.ReadWrite.All"
 
 # SharePoint target
-$siteId  = "iammutant.sharepoint.com,6d753d4e-257f-402c-af69-9e45300757ec,5ca4a2b3-b51c-41c1-9f3c-401d8ede08ce"
+$siteId  = "YOUR-TENANT.sharepoint.com,YOUR-SITE-GUID,YOUR-WEB-GUID"
 $driveId = "b!Tj11bX8lLECvaZ5FMAdX7LOipFwctcFBnzxAHY7eCM5akcFGThosTLbvDIYBPprj"
 
 # Local file
