@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
     Builds a searchable directory experience for the RA / FL / WH document libraries
-    on https://iammutant.sharepoint.com/sites/QA-ApprovedSupplierRawMaterial, replacing
+    on https://YOUR-TENANT.sharepoint.com/sites/QA-ApprovedSupplierRawMaterial, replacing
     300+ Quick Launch entries with 3 searchable directory pages.
 
 .DESCRIPTION
@@ -52,7 +52,7 @@
       - ImportExcel module installed (Install-Module ImportExcel -Scope CurrentUser).
 
 .EXAMPLE
-    Connect-PnPOnline -Url "https://iammutant.sharepoint.com/sites/QA-ApprovedSupplierRawMaterial" -Interactive
+    Connect-PnPOnline -Url "https://YOUR-TENANT.sharepoint.com/sites/QA-ApprovedSupplierRawMaterial" -Interactive
     .\Build-SharePointDirectory.ps1 -ExcelPath "C:\Data\RAW Inventory Details.xlsx" -SkipHideFromQuickLaunch
 
     # Verify the 3 directory pages look right, then run again without -SkipHideFromQuickLaunch
@@ -61,7 +61,7 @@
 
 [CmdletBinding()]
 param(
-    [string]$SiteUrl = "https://iammutant.sharepoint.com/sites/QA-ApprovedSupplierRawMaterial",
+    [string]$SiteUrl = "https://YOUR-TENANT.sharepoint.com/sites/QA-ApprovedSupplierRawMaterial",
     [Parameter(Mandatory = $true)]
     [string]$ExcelPath,
     [string]$LogPath,
@@ -507,4 +507,4 @@ foreach ($cfg in $PrefixConfig) {
 Write-Log "=== Run complete: Added=$($script:Stats.Added) Skipped=$($script:Stats.Skipped) Duplicate=$($script:Stats.Duplicate) Failed=$($script:Stats.Failed) ===" INFO
 Write-Host ""
 Write-Host "Summary: Added=$($script:Stats.Added)  Skipped=$($script:Stats.Skipped)  Duplicate=$($script:Stats.Duplicate)  Failed=$($script:Stats.Failed)" -ForegroundColor Cyan
-Write-Host "Full log: $script:LogFile" -ForegroundColor Cyan
+Write-Host "Full log: $script:LogFile" -ForegroundColor Cyanh
